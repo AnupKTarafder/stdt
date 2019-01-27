@@ -1,5 +1,6 @@
 $bg-color1: #bff8ff;
 $color1: rgb(191, 235, 232);
+$font1: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 .modal {
     min-width: 800px;
@@ -10,17 +11,18 @@ h1 {
     font-size: 250%;
 }
 
-h1, p {
+h1,
+p {
     color: $color1;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: $font1;
 }
 
 
-mat-horizontal-stepper{
-	background-color: inherit;
+mat-horizontal-stepper {
+    background-color: inherit;
 }
 
-.bigger{
+.bigger {
     font-size: 40px;
     padding: 0;
     margin: 0;

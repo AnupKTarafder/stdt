@@ -2,7 +2,7 @@
     Registration
 </button>
 
-<table style="padding: 3px;">
+<table class='boot table table-bordered' style="padding: 3px;">
     <thead>
         <tr>
             <th>Name</th>
@@ -10,15 +10,18 @@
             <th>C/GPA</th>
         </tr>
     </thead>
-    <tr *ngFor="let rec of record">
-        <td>{{rec.name}}</td>
-        <td>{{rec.cert}}</td>
-        <td>{{rec.cgpa}}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let rec of recs">
+            <td>{{rec.name}}</td>
+            <td>{{rec.cert}}</td>
+            <td>{{rec.cgpa}}</td>
+        </tr>
+    </tbody>
 </table>
+<button mat-raised-button color='accent' (click)="test()">Reload data</button>
 
 
- <!-- <table mat-table #table [dataSource]="this.record">
+<table mat-table #table [dataSource]="recs">
     <ng-container cdkColumnDef="name">
         <th mat-header-cell *cdkHeaderCellDef> Name </th>
         <td mat-cell *cdkCellDef="let row"> {{row.name}} </td>
@@ -33,4 +36,7 @@
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="['name', 'cert', 'cgpa']"></tr>
     <tr mat-row *matRowDef="let row; columns: ['name', 'cert', 'cgpa'];"></tr>
-</table>  -->
+</table>
+
+
+<!-- modal.component.html -->

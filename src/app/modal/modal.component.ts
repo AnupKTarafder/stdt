@@ -10,7 +10,7 @@ export interface Rec {
     cert: string;
     cgpa: number;
 }
-// const record: Rec[] = [] ;
+const record: any = [] ;
 
 // @title Dialog Overview
 
@@ -21,8 +21,10 @@ export interface Rec {
 })
 export class ModalComponent implements OnInit {
     constructor(public dialog: MatDialog) {}
-    record: Rec[] = [] ;
+    // record: Rec[] = [] ;
+    recs: Rec[] = [];
     test() {
+        record.length = 0;
         if (localStorage.reg) {
             const reg = JSON.parse(localStorage.getItem('reg'));
             // Getting data from two array to one from localstorafe
@@ -34,13 +36,17 @@ export class ModalComponent implements OnInit {
                     cert: patQ.cert1,
                     cgpa: patQ.cgpa1,
                 };
-                this.record.push(data);
+                record.push(data);
+                // this.record.push(data);
             }
+            this.recs = record;
         }
+        console.log(record);
     }
 
     ngOnInit() {
         this.test();
+        console.log(this.recs);
     }
 
     openDialog() {

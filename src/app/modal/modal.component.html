@@ -21,7 +21,7 @@
 <button mat-raised-button color='accent' (click)="test()">Reload data</button>
 
 
-<table mat-table #table [dataSource]="recs">
+<table mat-table #table [dataSource]="data">
     <ng-container cdkColumnDef="name">
         <th mat-header-cell *cdkHeaderCellDef> Name </th>
         <td mat-cell *cdkCellDef="let row"> {{row.name}} </td>

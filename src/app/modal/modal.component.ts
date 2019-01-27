@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 // import { loadavg } from 'os';
 import { NgForOf } from '@angular/common';
+import { MatTableDataSource } from '@angular/material';
 
 export interface Rec {
     name: string;
@@ -23,6 +24,7 @@ export class ModalComponent implements OnInit {
     constructor(public dialog: MatDialog) {}
     // record: Rec[] = [] ;
     recs: Rec[] = [];
+    data = new MatTableDataSource([]);
     test() {
         record.length = 0;
         if (localStorage.reg) {
@@ -40,6 +42,7 @@ export class ModalComponent implements OnInit {
                 // this.record.push(data);
             }
             this.recs = record;
+            this.data = new MatTableDataSource(record);
         }
         console.log(record);
     }

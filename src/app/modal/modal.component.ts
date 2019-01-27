@@ -1,8 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
-import { loadavg } from 'os';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+// import { loadavg } from 'os';
 import { NgForOf } from '@angular/common';
 
 export interface Rec {
@@ -10,7 +10,7 @@ export interface Rec {
     cert: string;
     cgpa: number;
 }
-const record: Rec[] = [] ;
+// const record: Rec[] = [] ;
 
 // @title Dialog Overview
 
@@ -21,7 +21,7 @@ const record: Rec[] = [] ;
 })
 export class ModalComponent implements OnInit {
     constructor(public dialog: MatDialog) {}
-
+    record: Rec[] = [] ;
     test() {
         if (localStorage.reg) {
             const reg = JSON.parse(localStorage.getItem('reg'));
@@ -34,7 +34,7 @@ export class ModalComponent implements OnInit {
                     cert: patQ.cert1,
                     cgpa: patQ.cgpa1,
                 };
-                record.push(data);
+                this.record.push(data);
             }
         }
     }
@@ -106,7 +106,7 @@ export class Modal implements OnInit {
                 cgpa: f2.cgpa1,
             };
 
-            record.push(data);
+            // record.push(data);
         } else {
             const reg = [];
             reg.push(f1.fname);

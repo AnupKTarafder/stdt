@@ -1,0 +1,22 @@
+<mat-toolbar style="height:56px" color="primary">
+    <div class="sdnw" style="width:60px;" fxLayoutAlign='center'>
+        <button mat-icon-button>
+            <img src='../../2.1.png'>
+        </button>
+    </div>
+    <h1>Responsive App</h1>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" 
+        [mode]='side' [opened]="true" fixedTopGap="56">
+        <mat-nav-list fxLayout="column" color='accent' fxLayoutAlign="center center">
+            <button mat-flat-button><mat-icon>local_library</mat-icon></button> 
+            <button mat-flat-button><mat-icon>access_time</mat-icon></button>
+            <button mat-flat-button><mat-icon>account_circle</mat-icon></button>
+        </mat-nav-list>
+    </mat-sidenav>
+
+
+    
+</mat-sidenav-container>

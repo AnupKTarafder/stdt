@@ -1,0 +1,62 @@
+@import '~@angular/material/theming';
+.light1{
+	@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+}
+.light2{
+	@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+}
+.dark1{
+	@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+}
+.dark2{
+	@import '~@angular/material/prebuilt-themes/purple-green.css';
+}// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+// Define the default theme (same as the example above).
+
+
+// Include the default theme styles.
+
+.light3{
+	$light-primary: mat-palette($mat-indigo);
+	$light-accent:  mat-palette($mat-pink, A200, A100, A400);
+	$light-warn: 	mat-palette($mat-red, A200, A100, A400);
+	$light-theme:   mat-light-theme($light-primary, $light-accent, $light-warn);
+	@include angular-material-theme($light-theme);
+}
+
+// Define an alternate dark theme.
+
+
+// Include the alternative theme styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+
+.dark3{
+	$dark-primary: mat-palette($mat-blue-grey);
+	$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+	$dark-warn:    mat-palette($mat-deep-orange);
+	$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+	@include angular-material-theme($dark-theme);
+}
+// .full{
+// 	width: 100%;
+// }
+
+.mat-dialog-container, .mat-step-header{
+	padding: 0;
+	background-color: #459af0;
+}
+// .mat-stepper-horizontal, .mat-stepper-vertical{
+// 	color: #459af0;
+
+// }
+
+// mat-horizontal-stepper{
+// 	background-color: white;
+// }

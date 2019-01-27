@@ -1,0 +1,29 @@
+$sidenav_width : 60px;
+
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav .sdnw{
+    width: $sidenav_width;
+    padding: 0;
+}
+span{
+    margin-left: $sidenav_width;
+}
+
+.sidenav .mat-toolbar {
+    background: primary;
+    color: primary;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    padding-left: 0;
+    z-index: 1;
+}
+
+mat-nav-list{
+    display: flex;
+}

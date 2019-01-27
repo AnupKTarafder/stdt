@@ -1,0 +1,125 @@
+<div class="modal">
+    <div>
+        <h1>Almost there! Your booking will be confirmed soon</h1>
+        <p>We will send you an email regarding booking confirmation as soon as the therapist confirmsa your
+            appopintment.</p>
+    </div>
+    <mat-divider></mat-divider>
+
+        <mat-horizontal-stepper  #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+                <div style="display:flex;">
+                </div>
+                <div>
+                    <form [formGroup]="firstFormGroup" fxLayout="row" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
+                        <div fxFlex=40>
+                            <p class="mat-caption">Salutation</p>
+                            <mat-radio-group matInput formControlName="sal"  fxLayoutGap="10px">
+                                <mat-radio-button value="Mr.">Mr.</mat-radio-button>
+                                <mat-radio-button value="Ms.">Ms.</mat-radio-button>
+                                <mat-radio-button value="Mrs.">Mrs.</mat-radio-button>
+                            </mat-radio-group><br>
+                            
+                            <mat-form-field>
+                                <input matInput placeholder="First name" formControlName='fname' required>
+                            </mat-form-field><br>
+                            
+                            <mat-form-field>
+                                <input matInput placeholder="Last name" formControlName='lname' required>
+                            </mat-form-field><br>
+                        </div>
+
+                        <div fxFlex=40>
+                            <p class="mat-caption">Gender</p>
+                            <mat-radio-group matInput formControlName='gender'  fxLayoutGap="10px">
+                                <mat-radio-button value="m">Male </mat-radio-button>
+                                <mat-radio-button value="f">Female </mat-radio-button>
+                                <mat-radio-button value="o">Others</mat-radio-button>
+                            </mat-radio-group><br>
+                            
+                            <mat-form-field>
+                                <input matInput placeholder="E-mail" required formControlName='email'>
+                            </mat-form-field><br>
+                            
+                            <mat-form-field>
+                                <input matInput placeholder="Mobile no." required formControlName='phone'>
+                            </mat-form-field><br>
+                        </div>
+                    </form>
+                </div>
+                <mat-dialog-actions align="end">
+                    <button mat-raised-button matStepperPrevious>Back</button>
+                    <button mat-raised-button matStepperNext>Next</button>
+                </mat-dialog-actions>
+            </mat-step>
+
+            <mat-step [stepControl]="secondFormGroup">
+                <div>
+                    <form [formGroup]="secondFormGroup" fxLayout="column" fxLayoutGap="10px">
+                        <div fxLayout='row' fxFlex=100 fxLayoutAlign='space-around stretch' > 
+                            <mat-form-field>
+                                <mat-select placeholder='Certificate' formControlName='cert1'>
+                                    <mat-option *ngFor='let cert of certs' value={{cert}} optional>
+                                        {{cert}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <input matInput type='number' placeholder='C/GPA' formControlName='cgpa1'>
+                            </mat-form-field>
+                            <button mat-button style="background-color: inherit;" (click)="add1()">
+                                <mat-icon class="bigger">add_circle</mat-icon>
+                            </button>
+                        </div>
+                        <br>
+                        <div fxLayout='row' fxFlex=100 fxLayoutAlign='space-around stretch' fxHide={{hide2}}>
+                            <mat-form-field>
+                                <mat-select placeholder='Certificate' formControlName='cert2'>
+                                    <mat-option *ngFor='let cert of certs' value={{cert}} >
+                                        {{cert}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            
+                            <mat-form-field>
+                                <input matInput type='number' placeholder='C/GPA' formControlName='cgpa2'>
+                            </mat-form-field>
+                            <button mat-button style="background-color: inherit;" (click)="add2()">
+                                <mat-icon class="bigger">add_circle</mat-icon>
+                            </button>
+                        </div>
+                        <br>
+                        <div fxLayout='row' fxFlex=100 fxLayoutAlign='space-around stretch' fxHide={{hide3}}>
+                            <mat-form-field>
+                                <mat-select placeholder='Certificate' formControlName='cert3'>
+                                    <mat-option *ngFor='let cert of certs' value={{cert}} >
+                                        {{cert}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            
+                            <mat-form-field>
+                                <input matInput type='number' placeholder='C/GPA'  formControlName='cgpa3'>
+                            </mat-form-field>
+                            <button mat-button disabled style="background-color: inherit;">
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <mat-dialog-actions align="end">
+                    <button mat-raised-button matStepperPrevious>Back</button>
+                    <button mat-raised-button matStepperNext>Next</button>    
+                </mat-dialog-actions>
+            </mat-step>
+
+            <mat-step [stepControl]="thirdFormGroup">
+                Thanks for your patience. You'll be notified of the outcome.
+                <mat-dialog-actions align="end">
+                    <button mat-raised-button matStepperPrevious>Back</button>
+                    <button mat-raised-button mat-dialog-close>Cancel</button>
+                    <button mat-raised-button mat-dialog-close cdkFocusInitial (click)="form()">Complete</button>
+                </mat-dialog-actions>
+            </mat-step>
+        </mat-horizontal-stepper>
+</div>
